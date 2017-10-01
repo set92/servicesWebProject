@@ -19,3 +19,16 @@ function comprobar_mathjs(){
         document.getElementById("lblRespuesta").innerHTML = "Comprueba tus calculos"
     }
 }
+
+function comprobar2_mathjs() {
+    var expr = document.getElementById("expr").value;
+    var eResult = document.getElementById("sol").value;
+    var c1 = math.compile(expr);
+    var c2 = c1.eval();
+
+    if ( c2 == Number(eResult) ){
+        document.getElementById("lblRespuesta2").innerHTML = "Correcto"
+    }else{
+        document.getElementById("lblRespuesta2").innerHTML = "Comprueba tus calculos"
+    }
+}

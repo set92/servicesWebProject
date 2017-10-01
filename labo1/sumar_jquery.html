@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Comprobador</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#submit').click(function comprobar(){
+                var n1 = $('#num1').val();
+                var n2 = $('#num2').val();
+                var eResult = $('#expected_result').val();
+                var opcion = $('#operaciones').val();
+
+                console.log(n1);
+
+                var resu;
+                switch(opcion){
+                    case '0': resu = Number(n1) + Number(n2);break;
+                    case '1': resu = Number(n1) - Number(n2);break;
+                    case '2': resu = Number(n1) * Number(n2);break;
+                    case '3': resu = Number(n1) / Number(n2);break;
+                    default:resu = Number(n1) + Number(n2);break;
+                }
+
+                if (Number(resu) === Number(eResult) ){
+                    $("#lblRespuesta").text("Correcto");
+                }else{
+                    $("#lblRespuesta").text("Comprueba tus calculos");
+                }
+
+
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        Num1: <input type="number" id="num1" /> <br />
+        Num2: <input type="number" id="num2" /> <br />
+
+        <br />
+        
+        <select id="operaciones">
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">*</option>
+            <option value="3">/</option>
+        </select>
+        
+        <br /><br />
+
+        Valor esperado: <input type="number" id="expected_result" /> <br /><br />
+
+
+        <input id="submit" type="button" value="Check"/>
+        <input type="reset" value="Reset" />
+
+        <p id="lblRespuesta"/>
+    </form>
+
+</body>
+</html>

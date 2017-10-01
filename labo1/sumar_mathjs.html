@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Comprobador</title>
     <script src="./js/math.min.js"></script>
+    <!--https://cdnjs.com/libraries/mathjs-->
     <script type="text/javascript" src="./js/codigo_mathjs.js" ></script>
 </head>
 <body>
@@ -23,12 +25,25 @@
 
         Valor esperado: <input type="number" id="expected_result" /> <br /><br />
 
-
-        <input id="submit" type="submit" value="Check" onclick="comprobar_mathjs()"/>
+        <input id="submit" type="button" value="Check" onclick="comprobar_mathjs()"/>
         <input type="reset" value="Reset" />
 
         <p id="lblRespuesta"/>
     </form>
+
+<center>-----------------------------------------------------------------------------------</center>
+<h4>Como no habia visto el video lo hice como arriba, luego al llegar a clase y hablar con el profesor vi el video,
+y mirando la documentacion lo hice como en el video que es la parte de abajo.</h4>
+
+
+<form>
+    Añadir expresion: <input type="text" id="expr" /> <br />
+    Solucion: <input type="number" id="sol" oninput="comprobar2_mathjs()" /> <br />
+    <br /><br />
+    <input type="reset" value="Limpiar" />
+</form>
+
+    <p id="lblRespuesta2"/>
 
 </body>
 </html>
