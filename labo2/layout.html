@@ -12,6 +12,27 @@
 		   type='text/css' 
 		   media='only screen and (max-width: 480px)'
 		   href='estilos/smartphone.css' />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script>
+          $(function () {
+              $("#inicio").on("click", function () {
+                  $("#centro").load("layout.html #spam");
+
+              });
+              $("#preguntas").on("click", function () {
+                  $("#centro").load("pregunta.html");
+
+
+              });
+              $("#creditos").on("click", function () {
+                  $("#centro").load("creditos.html");
+                  $(window).resize(function() {
+                      $('#centro').height("600px");
+                  });
+                  $(window).trigger('resize');
+              });
+          });
+      </script>
   </head>
   <body>
   <div id='page-wrap'>
@@ -22,13 +43,13 @@
 		<h2>Quiz: el juego de las preguntas</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<span><a href='layout.html'>Inicio</a></span>
-		<span><a href='quizes'>Preguntas</a></span>
-		<span><a href='creditos.html'>Creditos</a></span>
+		<span><a id="inicio" href='#'>Inicio</a></span>
+		<span><a id="preguntas" href='#'>Preguntas</a></span>
+		<span><a id="creditos" href='#'>Creditos</a></span>
 	</nav>
-    <section class="main" id="s1">
+    <section id="centro" class="main" id="s1">
     
-	<div>
+	<div id="spam">
 	Aqui se visualizan las preguntas y los creditos ...
 	</div>
     </section>
