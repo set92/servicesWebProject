@@ -17,7 +17,7 @@ $(function(){
         e.preventDefault();
 
         //stobal001@ikasle.ehu.es
-        var regex = /([a-zA-Z])+([0-9]){3}\@ikasle\.ehu.(es|eus)/;
+        var regex = /([a-zA-Z])+([0-9]){3}\@ikasle\.ehu\.(es|eus)/;
         if (regex.test(email) === false) return alert("Direccion incorrecta");
 
         if (complejidad < 1 || complejidad > 5 ) return alert("Complejidad insuficiente");
@@ -26,7 +26,7 @@ $(function(){
 
         if(email == '' || enunciado == '' || $('#iC').val() == '' ||
             $('#iI1').val() == '' || $('#iI2').val() == '' || $('#iI3').val() == '' ||
-            complejidad == '') return alert("Rellena campos con *");
+            complejidad == '' || $('#iTema').val() == '') return alert("Rellena campos con *");
 
         //Si llega aqui es que no ha tenido errores
         this.submit();
