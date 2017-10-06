@@ -17,11 +17,17 @@
           $(function () {
               $("#inicio").on("click", function () {
                   $("#centro").load("layout.html #spam");
-
+                  $(window).resize(function() {
+                      $('#centro').height("200px");
+                  });
+                  $(window).trigger('resize');
               });
               $("#preguntas").on("click", function () {
                   $("#centro").load("pregunta.html");
-
+                  $(window).resize(function() {
+                      $('#centro').height("250px");
+                  });
+                  $(window).trigger('resize');
 
               });
               $("#creditos").on("click", function () {
