@@ -20,11 +20,12 @@
             Complejidad(1..5)*: <input type="number" name="iComp" title="Complejidad">              <br>
             Tema (subject)*: <input type="text" id="iTema" name="iTema" title="Tema">               <br>
             Insertar imagen: <input type="file" name="image" size="40" accept="image/*" onchange="loadFile(event)"> <br>
-            <img id="output" align="right" width="40%" height="40%"/> <br>
+            <img id="output" align="center"/> <br>
             <script>
                 var loadFile = function(event) {
                     var output = document.getElementById('output');
                     output.src = URL.createObjectURL(event.target.files[0]);
+                    $('img#output').css({'width':'30%', 'height':'30%'});
                 };
             </script>
             <input type="submit" id="btnSubmit" value="Submit Form">                                <br>
