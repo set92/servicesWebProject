@@ -11,7 +11,7 @@
     <body>
         <!--action='prueba.php'-->
         <form id='fpreguntas' name='fpreguntas' method='POST' action='prueba.php'>
-            Email*: <input required type="text" pattern="[a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(es|eus)$" name="iEmail" title="Email*">                                <br>
+            Email*: <input required type="text" pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.(es|eus)$" name="iEmail" title="Email*">                                <br>
             Enunciado*: <input required type="text" minlength="10" name="iEnun" title="Enunciado*">                         <br>
             Respuesta correcta*: <input required type="text" id="iC" name="iC" title="Respuesta correcta">   <br>
             Respuesta incorrecta*: <input required type="text" id="iI1" name="iI1" title="Respuesta incorrecta">   <br>
