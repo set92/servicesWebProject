@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Formulario</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/comprobar.js"></script>
+    </head>
+    <body>
+        <!--action='prueba.php'-->
+        <form id='fpreguntas' name='fpreguntas' method='POST'
+              enctype='multipart/form-data' action='InsertarPreguntaConFoto.php'>
+            Email*: <input type="text" name="iEmail" title="Email*">                                <br>
+            Enunciado*: <input type="text" name="iEnun" title="Enunciado*">                         <br>
+            Respuesta correcta*: <input type="text" id="iC" name="iC" title="Respuesta correcta">   <br>
+            Respuesta incorrecta*: <input type="text" id="iI1" name="iI1" title="Respuesta incorrecta">   <br>
+            Respuesta incorrecta*: <input type="text" id="iI2" name="iI2" title="Respuesta incorrecta">   <br>
+            Respuesta incorrecta*: <input type="text" id="iI3" name="iI3" title="Respuesta incorrecta">   <br>
+            Complejidad(1..5)*: <input type="number" name="iComp" title="Complejidad">              <br>
+            Tema (subject)*: <input type="text" id="iTema" name="iTema" title="Tema">               <br>
+            Insertar imagen (Max 64Kb): <input type="file" name="image" size="40" accept="image/*" onchange="loadFile(event)"> <br>
+            <img id="output" align="center"/> <br>
+            <script>
+                var loadFile = function(event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                    $('img#output').css({'width':'30%', 'height':'30%'});
+                };
+            </script>
+            <input type="submit" id="btnSubmit" value="Submit Form">                                <br>
+
+        </form>
+
+
+
+    </body>
+</html>
