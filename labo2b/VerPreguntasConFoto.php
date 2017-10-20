@@ -22,13 +22,15 @@ echo '<table border="0" style="text-align:center;" cellpadding="0" cellspacing="
                 <td width="10%">Incorrecta 2</td>
                 <td width="10%">Incorrecta 3</td>
                 <td width="2%">Comp</td>
-                <td width="10%">Tema</td>              
+                <td width="10%">Tema</td>
+                <td width="10%">Foto</td>              
                 </tr>';
 
 while( $row = mysqli_fetch_array( $resultado)){
     #print_r($row);
     echo '<tr class="tabla_datos">';
-    for ($i=0;$i < $resultado->field_count;$i++) echo '<td>'.$row[$i].'</td>';
+    for ($i=0;$i < $resultado->field_count-1;$i++) echo '<td>'.$row[$i].'</td>';
+    echo '<td>'.'<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'"width="100px" height="100px"/>'.'</td>';
     echo '</tr>';
 }
 echo '</table>';
