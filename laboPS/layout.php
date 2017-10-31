@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+    <title>Preguntas</title>
+    <link rel='stylesheet' type='text/css' href='estilos/style.css' />
+    <link rel='stylesheet'
+          type='text/css'
+          media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+          href='estilos/wide.css' />
+    <link rel='stylesheet'
+          type='text/css'
+          media='only screen and (max-width: 480px)'
+          href='estilos/smartphone.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#inicio").on("click", function () {
+                $("#centro").load("layout.html #spam");
+                $(window).resize(function() {
+                    $('#centro').height("200px");
+                });
+                $(window).trigger('resize');
+            });
+            $("#preguntas").on("click", function () {
+                $("#centro").load("pregunta.html");
+                $(window).resize(function() {
+                    $('#centro').height("500px");
+                });
+                $(window).trigger('resize');
+
+            });
+            $("#creditos").on("click", function () {
+                $("#centro").load("creditos.html");
+                $(window).resize(function() {
+                    $('#centro').height("600px");
+                });
+                $(window).trigger('resize');
+            });
+        });
+    </script>
+</head>
+<body>
+<div id='page-wrap'>
+
+    <header class='main' id='h1'>
+        <?php if($_GET['op']=='preguntas'){ ?>
+            <span class="right"><a href="Registrar.php">Registrarse</a></span>
+            <span class="right"><a href="Login.php">Login</a></span>
+        <?php }else { ?>
+            $_GET['email']
+            <span class="right"><a href="Logout.php">Logout</a></span>
+        <?php } ?>
+        <h2>Quiz: el juego de las preguntas</h2>
+    </header>
+
+    <nav class='main' id='n1' role='navigation'>
+        <span><a id="inicio" href='#'>Inicio</a></span>
+        <?php if($_GET['op']=='preguntas'){ ?>
+            <span><a id="preguntas" href='#'>Preguntas</a></span>
+        <?php } ?>
+        <span><a id="creditos" href='#'>Creditos</a></span>
+    </nav>
+    <section id="centro" class="main" id="s1">
+
+        <div id="spam">
+            Aqui se visualizan las preguntas y los creditos ...
+        </div>
+    </section>
+    <footer class='main' id='f1'>
+        <p><a href="http://es.wikipedia.org/wiki/Quiz" target="_blank">Que es un Quiz?</a></p>
+        <a href='https://github.com/set92/servicesWebProject/'>Link GITHUB</a>
+    </footer>
+</div>
+</body>
+</html>
