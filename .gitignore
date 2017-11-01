@@ -1,5 +1,6 @@
 
 # Created by https://www.gitignore.io/api/phpstorm,java-web
+configuracion.php
 
 ### Java-Web ###
 ## ignoring target file
@@ -13,7 +14,6 @@ target/
 # User-specific stuff:
 .idea/**/tasks.xml
 .idea/dictionaries
-configuracion.php
 
 # Sensitive or high-churn files:
 .idea/**/dataSources.ids
@@ -66,5 +66,4 @@ fabric.properties
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/phpstorm,java-web
-/labo2b/configuracion.php
-/laboPS/configuracion.php
+

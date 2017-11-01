@@ -44,19 +44,19 @@
 <div id='page-wrap'>
 
     <header class='main' id='h1'>
-        <?php if($_GET['op']=='preguntas'){ ?>
+        <?php if(isset($GET["op"])){ ?>
             <span class="right"><a href="Registrar.php">Registrarse</a></span>
             <span class="right"><a href="Login.php">Login</a></span>
-        <?php }else { ?>
-            $_GET['email']
+        <?php }else { echo($_GET['email']); }?>
+
             <span class="right"><a href="Logout.php">Logout</a></span>
-        <?php } ?>
+
         <h2>Quiz: el juego de las preguntas</h2>
     </header>
 
     <nav class='main' id='n1' role='navigation'>
         <span><a id="inicio" href='#'>Inicio</a></span>
-        <?php if($_GET['op']=='preguntas'){ ?>
+        <?php if(isset($_GET["op"])){ ?>
             <span><a id="preguntas" href='#'>Preguntas</a></span>
         <?php } ?>
         <span><a id="creditos" href='#'>Creditos</a></span>

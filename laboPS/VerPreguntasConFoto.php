@@ -9,9 +9,9 @@ $counter = 1;
 $resultado = mysqli_query($connection, "SELECT * FROM preguntas ORDER BY id ASC");
 
 # Creamos el mensaje que se nos pasa por get de que se ha creado una nueva file, y sino bronca
-if (!empty($_GET["message"])) $message = $_GET["message"];
-else $message = "No has entrado por donde debias";
-echo '<script> alert("'.$message.'")</script>';
+#if (!empty($_GET["message"])) $message = $_GET["message"];
+#else $message = "No has entrado por donde debias";
+#echo '<script> alert("'.$message.'")</script>';
 
 echo '<table border="0" style="text-align:center;" cellpadding="0" cellspacing="3"><tr>
                 <td width="2%">Id</td>

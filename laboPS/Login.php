@@ -1,28 +1,35 @@
-<form action="Login.php" method="post">
-    <p> Email : <input type="email" required name="email"/>
-    <p> Password : <input type="pass" required name="pass"/>
-</form>
-<div id="nombrelogin"></div>
-
 <?php
-$email=$_POST['email'];
-$pass=$_POST['pass'];
+if(isset($_POST['email']) && isset($_POST['pass'])) {
 
-$conn = mysqli_connect($host, $user, $pass, $db);
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+        $email = $_POST['email'];
+        $password = $_POST['pass'];
 
-if (isset($email) && isset($pass)) {
-    $usuarios = mysqli_query($conn, "select * from usuarios where email='$email' and password='$pass'");
-    $cont = mysqli_num_rows($usuarios);
-    mysqli_close();
-}
-if($cont==1) {
-    echo("<script> alert ('BIENVENIDO AL SISTEMA: $username');
-        document.getElementById('nombrelogin').innerHTML='$username';</script>");
+        include "configuracion.php";
+        $conn = mysqli_connect($host, $user, $pass, $db);
+        if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
-    echo("Login correcto<p><a href='layout.php?op=preguntas&user=1&email=$username'>
+        $usuarios = mysqli_query($conn, "select * from usuarios where email='$email' and pass='$password'");
+        $cont = mysqli_num_rows($usuarios);
+        echo($cont);
+        mysqli_close($conn);
+
+        if ($cont == 1) {
+            echo("<script> alert ('BIENVENIDO AL SISTEMA: $email');
+                document.getElementById('nombrelogin').innerHTML='$email';</script>");
+
+            echo("Login correcto<p><a href='layout.php?op=preguntas&user=1&email=$email'>
             Puede acceder a las aplicaciones para usuarios registrados</a>");
+        } else {
+            echo("<p style='color:red;'>Parametros de login incorrectos</p>
+                <a href='layout.php?op=login'>Puede intentarlo de nuevo</a>");
+        }
+
 }else{
-    echo ("<p style='color:red;'>Parametros de login incorrectos</p><a href='layout.php?op=login'>Puede intentarlo
-de nuevo</a>");}
+    echo  '<form action="Login.php" method="post" class="login">
+			<h2> Identificacion de Usuario </h2>
+			<div>Email<input name="email" type="text" required></div>
+			<div>Password<input name="pass" type="password" required></div>
+			<div><input id="login" name="login" type="submit" value="login"></div>
+		</form>';
+}
 ?>
