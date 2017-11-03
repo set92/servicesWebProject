@@ -1,5 +1,16 @@
 <?php
-	include "configurar.php";
+
+    function xml(){
+        $xml = simplexml_load_file('../xml/preguntas.xml');
+        $pelicula = $xml->addChild('assessmentItem');
+        $pelicula->addChild('titulo',$_POST['titulo']);
+        $pelicula->addChild('argumento', '');
+
+        echo $xml->asXML();
+    }
+
+
+    include "configurar.php";
 
 	if(!($bdPreguntas = mysqli_connect($host, $user, $pass, $bd))) 
 		 die("Fallo al conectar a MySQL: " . $bdPreguntas->connect_error);
