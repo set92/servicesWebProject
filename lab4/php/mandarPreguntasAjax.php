@@ -1,5 +1,4 @@
 <?php
-	include "configurar.php";
 	
 	$bdPreguntas;
 	if(isset($_GET['insert']) && ($_GET['insert'] == "1"))
@@ -34,6 +33,7 @@
     
 
 	function bdInsertarPregunta() {
+	    include "configurar.php";
 	    
 		$email=$_POST["correo"];
 		$enunciado=$_POST["enunciado"];
@@ -45,7 +45,7 @@
 		$tema=$_POST["iTema"];
 		echo "<script>console.log( 'Debug Objects: " . 'valor: '. $inco3 . "//' );</script>";
 		
-		$bdPreguntas = mysqli_connect("localhost", "id2921673_root", "setsw1992", "id2921673_bdsw");
+		$bdPreguntas = mysqli_connect($host, $user, $pass, $bd);
 		
 		// Si la imagen no esta vacia y que sea de unos tipos determinados
 		if (!empty($email) && !empty($enunciado)){
